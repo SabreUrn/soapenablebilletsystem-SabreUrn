@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BilletLib</name>
+    </assembly>
+    <members>
+        <member name="T:BilletLib.Car">
+            <summary>
+            Contains specific information about a normal car for bridge tolls.
+            </summary>
+        </member>
+        <member name="M:BilletLib.Car.#ctor">
+            <summary>
+            Creates a new Car instance.
+            Sets the default øresund price to 410.
+            Sets the default brobizz price to 161.
+            </summary>
+        </member>
+        <member name="M:BilletLib.Car.Price(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Returns the price the vehicle's owner will have to pay.
+            WeekendDiscount (5%) and BrobizzDiscount (20%) both happen where applicable.
+            The default price is 240.
+            </summary>
+            <param name="bridgeType">The name of the bridge.</param>
+            <param name="brobizz">Whether the car has brobizz.</param>
+            <param name="weekend">Whether the crossing happens on a weekend.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BilletLib.Car.VehicleType(System.String)">
+            <summary>
+            Returns "Car".
+            If the bridge is Øresund, instead returns "Øresund Car".
+            </summary>
+            <param name="bridgeType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BilletLib.Car.WeekendDiscount(System.Int32,System.String)">
+            <summary>
+            Applies a 20% discount to the price.
+            </summary>
+            <param name="price">The base toll price.</param>
+            <param name="bridgeType">The type of the bridge.</param>
+            <returns></returns>
+        </member>
+        <member name="T:BilletLib.MC">
+            <summary>
+            Contains specific information about a motorcycle for bridge tolls.
+            </summary>
+        </member>
+        <member name="M:BilletLib.MC.#ctor">
+            <summary>
+            Creates a new instance motorcycle instance.
+            Sets the default Øresund price to 210.
+            Sets the default Brobizz price to 73.
+            </summary>
+        </member>
+        <member name="M:BilletLib.MC.Price(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Returns the default price the motorcycle's owner will have to pay.
+            BrobizzDiscount (20%) happens where applicable.
+            The default price is 125.
+            </summary>
+            <param name="bridgeType">The name of the bridge.</param>
+            <param name="brobizz">Whether the motorcycle has brobizz.</param>
+            <param name="weekend">Whether the crossing happens on a weekend (doesn't matter).</param>
+            <returns></returns>
+        </member>
+        <member name="M:BilletLib.MC.VehicleType(System.String)">
+            <summary>
+            Returns "MC".
+            If the bridge is Øresund, instead returns "Øresund MC".
+            </summary>
+            <param name="bridgeType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BilletLib.VehicleBase">
+            <summary>
+            Contains the base information for creating a vehicle for bridge tolls.
+            Cannot be implemented on its own, a child is required.
+            </summary>
+        </member>
+        <member name="M:BilletLib.VehicleBase.#ctor">
+            <summary>
+            Creates a new instance of the vehicle.
+            </summary>
+        </member>
+        <member name="P:BilletLib.VehicleBase.LicensePlate">
+            <summary>
+            The license plate of the vehicle being tolled.
+            </summary>
+        </member>
+        <member name="P:BilletLib.VehicleBase.Date">
+            <summary>
+            The date the vehicle is being tolled.
+            </summary>
+        </member>
+        <member name="P:BilletLib.VehicleBase.ØresundType">
+            <summary>
+            The name of the vehicle type on the Øresund bridge.
+            </summary>
+        </member>
+        <member name="P:BilletLib.VehicleBase.ØresundPriceDefault">
+            <summary>
+            The default price of the toll for the vehicle type on the Øresund bridge.
+            </summary>
+        </member>
+        <member name="P:BilletLib.VehicleBase.ØresundPriceBrobizz">
+            <summary>
+            The price for the toll for the vehicle type on the Øresund Bridge.
+            </summary>
+        </member>
+        <member name="M:BilletLib.VehicleBase.Price(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Returns the price the vehicle's owner will have to pay.
+            </summary>
+            <param name="bridgeType">The name of the bridge.</param>
+            <param name="brobizz">Whether the car has brobizz.</param>
+            <param name="weekend">Whether the crossing happens on a weekend.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BilletLib.VehicleBase.VehicleType(System.String)">
+            <summary>
+            Returns the vehicle type for the specific bridge.
+            </summary>
+            <param name="bridgeType">The name of the bridge.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BilletLib.VehicleBase.BrobizzDiscount(System.Int32,System.String)">
+            <summary>
+            Returns the price of the toll after a brobizz discount is applied.
+            </summary>
+            <param name="price">The base price of the toll.</param>
+            <param name="bridgeType">The type of the bridge.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
